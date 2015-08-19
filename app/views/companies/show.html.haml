@@ -1,0 +1,27 @@
+= notice
+%p 该公司职员信息
+- @members.each do |member|
+    卡号：
+    = member.card_id+"电话号码 ："
+    = member.phone_num+"姓名 ："
+    = member.name+"小组： "
+    - member.team_ids.each do |team|
+        = Team.find(team).name+"|"
+    = button_to "删除成员", "/companies/#{@company.id}/members/#{member.id}", :method => :delete 
+    = button_to "修改成员","/companies/#{@company.id}/members/#{member.id}/edit",:method => :get
+    %hr
+= button_to "新建成员","/companies/#{@company.id}/members/new",:method => :get
+
+%p 该公司小组信息
+- a = 1
+- @teams.each do |team|
+    第
+    = a
+    组
+    = team.name 
+    - a=a+1
+    .abc 
+        = button_to "删除小组","/companies/#{@company.id}/teams/#{team.id}" , :method => :delete 
+        = button_to "修改小组","/companies/#{@company.id}/teams/#{team.id}/edit",:method => :get
+= button_to "新建小组", "/companies/#{@company.id}/teams/new", :method => :get 
+= button_to "编辑公司", " /companies/#{@company.id}/edit",:method => :get

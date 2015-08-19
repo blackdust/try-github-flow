@@ -1,0 +1,16 @@
+%p 修改member
+= notice
+.sign_up
+  = simple_form_for [@company,@member],:method => :put  do |f|
+    .field
+      %p 名字
+      = f.input :name
+    .field
+      %p 电话号码
+      = f.input :phone_num
+    .field
+      %p 身份证号码
+      = f.input :card_id
+      = f.association :teams,   as: :check_boxes
+    .field
+      = f.button 'submit'

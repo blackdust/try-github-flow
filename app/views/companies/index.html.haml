@@ -1,0 +1,9 @@
+%p 公司列表
+.header
+  = notice
+- @companies.each do |company|
+  .line
+    = company.name
+    = company.address
+    = button_to " 详情", " /companies/#{company.id}", :method => :get 
+    = button_to " 删除", " /companies/#{company.id}", :method => :delete 

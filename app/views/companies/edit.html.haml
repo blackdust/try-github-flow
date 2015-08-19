@@ -1,0 +1,12 @@
+%p 修改company
+= notice
+.sign_up
+  = simple_form_for @company,:method => :put do |f|
+    .field
+      %p name
+      = f.input :name
+    .field
+      %p address
+      = f.input :address
+    .field
+      = f.button 'submit'

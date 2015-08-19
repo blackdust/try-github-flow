@@ -1,0 +1,9 @@
+%p  修改team
+= notice
+.sign_up
+  = simple_form_for [@company,@team],:method => :put do |f|
+    .field
+      %p team name
+      = f.input :name
+    .field
+      = f.button 'submit'

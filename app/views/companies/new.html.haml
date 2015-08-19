@@ -1,0 +1,12 @@
+%p 创建company
+= notice
+.sign_up
+  = simple_form_for Company.new do |f|
+    .field
+      %p name
+      = f.input :name
+    .field
+      %p address
+      = f.input :address
+    .field
+      = f.button 'submit'
